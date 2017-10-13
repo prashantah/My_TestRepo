@@ -1,0 +1,14 @@
+1  aws configure
+    2  aws ec2 describe-instances
+    3  aws ec2 describe-instances |grep instanceid
+    4  aws ec2 describe-instances |grep -i  instanceid
+    5  aws ec2 describe-instances |grep -i  instanceid |awk '{print $2}'
+    6  aws ec2 describe-instances --query 'Reservations[*].Instances[*].[InstanceId]' --filters Name=instance-state-name,Values=running --output text
+    7  aws ec2 describe-instances --query 'Reservations[*].Instances[*].[InstanceId]' --filters Name=instance-state-name,Values=stopped --output text
+    8  aws ec2 describe-instances --query 'Reservations[*].Instances[*].[InstanceId]' --filters Name=instance-state-name,Values=stopped --output text >>stoppedinstances
+    9  vi start.sh
+   10  chmod 700 ./start.sh
+   11  ./start.sh
+   12  history
+[root@ip-172-31-27-248 ec2-user]#
+
